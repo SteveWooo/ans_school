@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+	<!-- <link href="./dist/vuetify.min.css" rel="stylesheet"> -->
+	<!-- <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet"> -->
+	<link href="dist/vuetify.min.css" rel="stylesheet">
+	<link href="dist/wangeditor.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<style type="text/css">
+		[v-cloak] {
+		    display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" v-cloak>
+		<v-navigation-drawer
+	      v-model="index.drawer"
+	      fixed
+	      clipped
+	      app
+	    >
+	      <v-list dense>
+	      	<v-subheader class="mt-3 grey--text text--darken-1">目录</v-subheader>
+	        <v-list-tile v-for="item in index.menu" :key="item.text" @click="drawerRouter(item.router)">
+	          <v-list-tile-action>
+	            <v-icon>{{ item.icon }}</v-icon>
+	          </v-list-tile-action>
+	          <v-list-tile-content>
+	            <v-list-tile-title>
+	              {{ item.text }}
+	            </v-list-tile-title>
+	          </v-list-tile-content>
+	        </v-list-tile>
+	      </v-list>
+	    </v-navigation-drawer>
+
+	    <v-toolbar
+	      color="red"
+	      dense
+	      fixed
+	      clipped-left
+	      app
+	    >
+	      <v-toolbar-side-icon @click.stop="index.drawer = !index.drawer"></v-toolbar-side-icon>
+			<v-icon class="mx-3"></v-icon>
+			<v-toolbar-title class="v-toolbar__title mr-5 align-center">
+			<!-- <span class="title" style="color:#FFF">科城政府中心管理后台 <small> 欢迎您!</small></span> -->
+				<span class="title" style="color:#FFF">{{router_name[router]}}</span>
+			</v-toolbar-title>
+			<v-spacer>
+			</v-spacer>
+			<v-toolbar-items class="hidden-sm-and-down">
+				<v-btn 
+					flat
+					color="white"
+					v-if="global.common.adminData">
+					<v-icon>info</v-icon>
+					{{global.common.adminData.name}} 已登录
+				</v-btn>
+				<v-btn 
+					flat 
+					color="white"
+					@click="toLoginPage"
+					style="text-decoration:underline">
+					重新登录
+				</v-btn>
+			</v-toolbar-items>
+	    </v-toolbar>
+
+		<v-content>
+			<router-view>
+				<component v-bind:is="router" v-bind:global="global"></component>
+			</router-view>
+		</v-content>
+
+		<v-footer app>
+			<v-layout row wrap style="margin-bottom: 100px;">
+				<v-flex xs8>
+				</v-flex>
+				<v-flex xs4>
+					<v-alert
+						v-model="global.common.controllers.leaves.alert.show"
+						dismissible
+						transition="scale-transition"
+						type="warning"
+						color="green"
+						>
+						{{global.common.controllers.leaves.alert.message}}
+					</v-alert>
+				</v-flex>
+			</v-layout>
+		</v-footer>
+ 	</div>
+	<script type="text/javascript" src="js/init.js"></script>
+</body>
+</html>
