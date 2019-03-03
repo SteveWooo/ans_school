@@ -39,7 +39,6 @@ async function create_news(swc, options){
 		now,
 		swc.config.wechat.public_salt
 	].join("&")
-	console.log(options);
 	console.log(source);
 	var news = {
 		news_id : crypto.createHash("md5").update(source).digest("hex"),
@@ -95,7 +94,7 @@ async function main(){
 	})
 
 
-	console.log(result);
+	console.log('success');
 }
 
 main();

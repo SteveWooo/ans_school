@@ -6,13 +6,13 @@
 	"wechat" : {
 		"appid" : "wxf4314d88d5eda41a",
 		"secret" : "303d08608960884bcc4ee394da577c3d",
-		"public_salt" : "repair_system"
+		"public_salt" : "exam"
 	},
 	"mysql" : {
 		"host" : "localhost",
 		"user" : "root",
 		"password" : "123456",
-		"database" : "repair_system",
+		"database" : "exam_system",
 		"port" : 3306
 	}
 }

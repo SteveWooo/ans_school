@@ -3,12 +3,12 @@ var vue = new Vue({
 	data : {
 		router_name : {
 			'login' : '登陆',
-			'class' : '服务分类管理',
-			'imageloop' : '首页轮播管理',
-			'notice' : '公告管理',
-			'order' : '订单管理',
-			'selfservice' : '自助维修管理',
-			'wechatuser' : '微信用户管理'
+			'subject' : '科目管理',
+			'topicgroup' : '题库管理',
+			'topic' : '题目管理',
+			'information' : '资讯管理',
+			'wechatuser' : '用户管理',
+			'record' : '成绩查询'
 		},
 		router : "",
 		global : {
@@ -110,21 +110,13 @@ var vue = new Vue({
 				icon: 'history',
 				router : "login"
 			},{
-				text : "服务分类管理",
+				text : "科目管理",
 				icon: 'history',
-				router : "class"
+				router : "subject"
 			},{
-				text : "首页轮播管理",
+				text : "资讯管理",
 				icon: 'history',
-				router : "imageloop"
-			},{
-				text : "公告管理",
-				icon: 'history',
-				router : "notice"
-			},{
-				text : "订单管理",
-				icon: 'history',
-				router : "order"
+				router : "information"
 			},{
 				text : "微信用户管理",
 				icon: 'history',

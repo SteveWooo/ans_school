@@ -46,23 +46,6 @@ var wechat_routers = {
 		method : "post"
 	},
 
-	//订单类
-	getOrder : {
-		module : require("./routers/wechat/orders/get"),
-		path : "/api/w/order/get",
-		method : "get"
-	},
-	addOrder : {
-		module : require("./routers/wechat/orders/add"),
-		path : "/api/w/order/add",
-		method : "post"
-	},
-	evaluteOrder : {
-		module : require("./routers/wechat/orders/evaluate"),
-		path : "/api/w/order/evaluate",
-		method : "post"
-	},
-
 	//自助服务类
 	getClasses : {
 		module : require("./routers/wechat/classes/get"),
@@ -74,122 +57,91 @@ var wechat_routers = {
 		path : "/api/w/self_service/get",
 		method : "get"
 	},
-
-	//通知类
-	getNotice : {
-		module : require("./routers/wechat/notices/get"),
-		path : "/api/w/notice/get",
-		method : "get"
-	},
-
-	//图片轮播
-	getImageLoop : {
-		module : require("./routers/wechat/image_loops/get"),
-		path : "/api/w/image_loop/get",
-		method : "get"
-	}
 }
 
 //后台接口
 var admin_routers = {
-	//用户信息类
-	createAdmin : {
-		module : require("./routers/admin/user/createAdmin"),
-		path : "/api/m/user/create_admin",
-		method : "post"
+	getDemo : {
+		module : require('./routers/admin/subjects/get'),
+		path : '/api/m/demo/get',
+		method : 'get'
 	},
-	//订单
-	getOrder : {
-		module : require("./routers/admin/orders/get"),
-		path : "/api/m/order/get",
+	//科目
+	getSubject : {
+		module : require('./routers/admin/subjects/get'),
+		path : '/api/m/subject/get',
+		method : 'get'
+	},
+	addSubject : {
+		module : require('./routers/admin/subjects/add'),
+		path : '/api/m/subject/add',
+		method : 'post'
+	},
+	updateSubject : {
+		module : require('./routers/admin/subjects/update'),
+		path : '/api/m/subject/update',
+		method : 'post'
+	},
+	deleteSubject : {
+		module : require('./routers/admin/subjects/delete'),
+		path : '/api/m/subject/delete',
+		method : 'post'
+	},
+
+
+	//资讯
+	getInformation : {
+		module : require("./routers/admin/information/get"),
+		path : "/api/m/information/get",
 		method : "get"
 	},
-	updateOrderStatus : {
-		module : require("./routers/admin/orders/updateStatus"),
-		path : "/api/m/order/update_status",
+	addInformation : {
+		module : require("./routers/admin/information/add"),
+		path : "/api/m/information/add",
+		method : "post"
+	},
+	updateInformation : {
+		module : require("./routers/admin/information/update"),
+		path : "/api/m/information/update",
+		method : "post"
+	},
+	deleteInformation : {
+		module : require("./routers/admin/information/delete"),
+		path : "/api/m/information/delete",
 		method : "post"
 	},
 
-	//分类
-	addClass : {
-		module : require("./routers/admin/classes/add"),
-		path : "/api/m/class/add",
-		method : "post"
-	},
-	deleteClass : {
-		module : require("./routers/admin/classes/delete"),
-		path : "/api/m/class/delete",
-		method : "post"
-	},
-	getClass : {
-		module : require("./routers/admin/classes/get"),
-		path : "/api/m/class/get",
+	//题库
+	getTopicGroup : {
+		module : require("./routers/admin/topicGroups/get"),
+		path : "/api/m/topic_group/get",
 		method : "get"
 	},
-	updateClass : {
-		module : require("./routers/admin/classes/update"),
-		path : "/api/m/class/update",
+	addTopicGroup : {
+		module : require("./routers/admin/topicGroups/add"),
+		path : "/api/m/topic_group/add",
+		method : "post"
+	},
+	updateTopicGroup : {
+		module : require("./routers/admin/topicGroups/update"),
+		path : "/api/m/topic_group/update",
+		method : "post"
+	},
+	deleteTopicGroup : {
+		module : require("./routers/admin/topicGroups/delete"),
+		path : "/api/m/topic_group/delete",
 		method : "post"
 	},
 
-	//通知类
-	getNotices : {
-		module : require("./routers/admin/notices/get"),
-		path : "/api/m/notice/get",
+	//题目
+	getTopic : {
+		module : require("./routers/admin/topics/get"),
+		path : "/api/m/topic/get",
 		method : "get"
 	},
-	addNotice : {
-		module : require("./routers/admin/notices/add"),
-		path : "/api/m/notice/add",
-		method : "post"
-	},
-	updateNotice : {
-		module : require("./routers/admin/notices/update"),
-		path : "/api/m/notice/update",
-		method : "post"
-	},
-	deleteNotice : {
-		module : require("./routers/admin/notices/delete"),
-		path : "/api/m/notice/delete",
-		method : "post"
-	},
-
-	//图片轮播
-	getImageLoop : {
-		module : require("./routers/admin/imageLoops/get"),
-		path : "/api/m/image_loop/get",
-		method : "get"
-	},
-	addImageLoop : {
-		module : require("./routers/admin/imageLoops/add"),
-		path : "/api/m/image_loop/add",
-		method : "post"
-	},
-	deleteImageLoop : {
-		module : require("./routers/admin/imageLoops/delete"),
-		path : "/api/m/image_loop/delete",
-		method : "post"
-	},
-
-	//自助维修
-	getSelfServices : {
-		module : require("./routers/admin/selfServices/get"),
-		path : "/api/m/self_service/get",
-		method : "get"
-	},
-	addSelfServices : {
-		module : require("./routers/admin/selfServices/add"),
-		path : "/api/m/self_service/add",
-		method : "post"
-	},
-	updateSelfServices : {
-		module : require("./routers/admin/selfServices/update"),
-		path : "/api/m/self_service/update",
-		method : "post"
-	},
-	deleteSlefServices : {
-		module : require("./routers/admin/selfServices/delete"),
-		path : "/api/m/self_service/delete",
+	updateTopic : {
+		module : require("./routers/admin/topics/update"),
+		path : "/api/m/topic/update",
 		method : "post"
 	},
 

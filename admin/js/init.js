@@ -28,12 +28,12 @@ var keke = {
 		var components = [
 			'hello', 
 			'login',
-			'class',
-			'imageloop',
-			'notice',
-			'order',
-			'selfservice',
-			'wechatuser'
+			'demo',
+			'wechatuser',
+
+			'subject',
+			'topicgroup',
+			'topic'
 		];
 
 		var sdk_list = {

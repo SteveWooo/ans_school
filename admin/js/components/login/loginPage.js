@@ -38,7 +38,7 @@ Vue.component("login", {
 					that.ctrl.alert({
 						message : "登陆成功"
 					})
-					location.hash = "class";
+					location.hash = "subject";
 					// location.reload();
 				}
 			})
