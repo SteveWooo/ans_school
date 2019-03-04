@@ -32,10 +32,11 @@ async function models_defined(swc){
 	})
 	//资讯表
 	swc.db.models.informations = swc.db.seq.define("informations", {
-		onformation_id : {type : Sequelize.STRING(32)},
+		information_id : {type : Sequelize.STRING(32)},
 
 		title : {type : Sequelize.TEXT()},
 		content : {type : Sequelize.TEXT()},
+		cover_url : {type : Sequelize.TEXT()},
 
 		status : {type : Sequelize.INTEGER()},
 		set_top : {type : Sequelize.INTEGER()}, //是否首页轮播
@@ -91,6 +92,7 @@ async function models_defined(swc){
 	})
 	//考试记录表
 	swc.db.models.user_records = swc.db.seq.define("user_records", {
+		user_record_id : {type : Sequelize.STRING(32)}, //唯一id
 		topic_group_id : {type : Sequelize.STRING(32)}, //题组
 		answers : {type : Sequelize.TEXT()}, //回答选项，一个字符串 ABCAADDBB
 		score : {type : Sequelize.TEXT()}, //得分
@@ -112,6 +114,17 @@ async function models_defined(swc){
 		targetKey : 'admin_id',
 		as : 'admin'
 	})
+	swc.db.models.informations.belongsTo(swc.db.models.admins, {
+		foreignKey : 'create_by',
+		targetKey : 'admin_id',
+		as : 'admin'
+	})
+	swc.db.models.user_records.belongsTo(swc.db.models.topic_groups, {
+		foreignKey : 'topic_group_id',
+		targetKey : 'topic_group_id',
+		as : 'topic_group'
+	})
+
 	// swc.db.models.orders.belongsTo(swc.db.models.service_classes, {
 	// 	foreignKey : "service_class_id",
 	// 	targetKey : "service_class_id",

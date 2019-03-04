@@ -1,11 +1,11 @@
 /*
-* @param self_service_id, updatecontents
+* @param information_id, updatecontents
 */
 module.exports = async (req, res, next)=>{
 	var query = req.body;
 	var swc = req.swc;
 
-	if(!query.self_service_id || query.self_service_id.length != 32){
+	if(!query.information_id || query.information_id.length != 32){
 		req.response.status = 4005;
 		req.response.error_message = "参数错误";
 		next();
@@ -19,13 +19,13 @@ module.exports = async (req, res, next)=>{
 	}
 
 	try{
-		var selfService = await swc.db.models.self_services.findAndCountAll({
+		var information = await swc.db.models.informations.findAndCountAll({
 			where : {
-				self_service_id : query.self_service_id
+				information_id : query.information_id
 			}
 		})
 
-		if(selfService.count == 0){
+		if(information.count == 0){
 			req.response.status = 4004;
 			req.response.error_message = '找不到该服务';
 			next();
@@ -38,13 +38,14 @@ module.exports = async (req, res, next)=>{
 		if(query.content){
 			updateform.content = query.content;
 		}
-		if(query.description){
-			updateform.description = query.description;
-		}
 		if(image){
-			updateform.cover_url = image.filename
+			updateform.cover_url = image.filename;
 		}
-		var result = await selfService.rows[0].update(updateform);
+
+		if(query.set_top){
+			updateform.set_top = query.set_top;
+		}
+		var result = await information.rows[0].update(updateform);
 		req.response.data = result;
 		next();
 	}catch(e){

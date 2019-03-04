@@ -1,14 +1,14 @@
 /*
-* @param page item_per_page | self_service_id
+* @param page item_per_page | information_id
 */
 module.exports = async (req, res, next)=>{
 	var query = req.query;
 	var swc = req.swc;
 
-	if(query.self_service_id && query.self_service_id.length == 32){
-		var result = await swc.db.models.self_services.findAndCountAll({
+	if(query.information_id && query.information_id.length == 32){
+		var result = await swc.db.models.informations.findAndCountAll({
 			where : {
-				self_service_id : query.self_service_id
+				information_id : query.information_id
 			}
 		})
 
@@ -20,13 +20,6 @@ module.exports = async (req, res, next)=>{
 		}
 
 		req.response.data = result;
-		next();
-		return ;
-	}
-
-	if(!query.service_class_id || query.service_class_id.length != 32){
-		req.response.status = 4005;
-		req.response.error_message = "参数错误：service_class_id";
 		next();
 		return ;
 	}
@@ -47,11 +40,21 @@ module.exports = async (req, res, next)=>{
 	}
 	query.item_per_page = parseInt(query.item_per_page);
 
+	var conditions = {
+		status : 1
+	}
+
+	if(query.set_top){
+		conditions.set_top = query.set_top;
+	}
+
 	try{
-		var result = await swc.db.models.self_services.findAndCountAll({
-			where : {
-				service_class_id : query.service_class_id
-			},
+		var result = await swc.db.models.informations.findAndCountAll({
+			where : conditions,
+			include : [{
+				as : "admin",
+				model : swc.db.models.admins
+			}],
 			order : [["create_at", "DESC"]],
 			limit : query.item_per_page,
 			offset : (query.page - 1) * query.item_per_page

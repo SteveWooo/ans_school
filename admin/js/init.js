@@ -33,7 +33,8 @@ var keke = {
 
 			'subject',
 			'topicgroup',
-			'topic'
+			'topic',
+			'information'
 		];
 
 		var sdk_list = {

@@ -1,14 +1,14 @@
 /*
-* @param page item_per_page | notice_id
+* @param page item_per_page  | topic_id
 */
 module.exports = async (req, res, next)=>{
 	var query = req.query;
 	var swc = req.swc;
 
-	if(query.notice_id && query.notice_id.length == 32){
-		var result = await swc.db.models.notices.findAndCountAll({
+	if(query.topic_id && query.topic_id.length == 32){
+		var result = await swc.db.models.topics.findAndCountAll({
 			where : {
-				notice_id : query.notice_id
+				topic_id : query.topic_id
 			}
 		})
 
@@ -20,6 +20,13 @@ module.exports = async (req, res, next)=>{
 		}
 
 		req.response.data = result;
+		next();
+		return ;
+	}
+
+	if(!query.topic_group_id || query.topic_group_id.length != 32){
+		req.response.status = 4005;
+		req.response.error_message = "参数错误：topic_group_id";
 		next();
 		return ;
 	}
@@ -41,7 +48,11 @@ module.exports = async (req, res, next)=>{
 	query.item_per_page = parseInt(query.item_per_page);
 
 	try{
-		var result = await swc.db.models.notices.findAndCountAll({
+		var result = await swc.db.models.topics.findAndCountAll({
+			where : {
+				topic_group_id : query.topic_group_id,
+				status : 1
+			},
 			order : [["create_at", "DESC"]],
 			limit : query.item_per_page,
 			offset : (query.page - 1) * query.item_per_page

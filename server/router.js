@@ -46,15 +46,43 @@ var wechat_routers = {
 		method : "post"
 	},
 
-	//自助服务类
-	getClasses : {
-		module : require("./routers/wechat/classes/get"),
-		path : "/api/w/class/get",
+	//资讯
+	getInformation : {
+		module : require("./routers/wechat/informations/get"),
+		path : "/api/w/information/get",
 		method : "get"
 	},
-	getSelfServices : {
-		module : require("./routers/wechat/selfServices/get"),
-		path : "/api/w/self_service/get",
+
+	//科目
+	getSubject : {
+		module : require("./routers/wechat/subjects/get"),
+		path : "/api/w/subject/get",
+		method : "get"
+	},
+
+	//试卷列表
+	getTopicGroup : {
+		module : require("./routers/wechat/topicGroups/get"),
+		path : "/api/w/topic_group/get",
+		method : "get"
+	},
+
+	//获取题目
+	getTopic : {
+		module : require("./routers/wechat/topics/get"),
+		path : "/api/w/topic/get",
+		method : "get"
+	},
+
+	//记录
+	addRecoed : {
+		module : require("./routers/wechat/records/add"),
+		path : "/api/w/record/add",
+		method : "post"
+	},
+	getRecoed : {
+		module : require("./routers/wechat/records/get"),
+		path : "/api/w/record/get",
 		method : "get"
 	},
 }

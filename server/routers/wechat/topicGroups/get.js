@@ -1,14 +1,14 @@
 /*
-* @param page item_per_page | self_service_id
+* @param page item_per_page | topic_group_id | subject_id
 */
 module.exports = async (req, res, next)=>{
 	var query = req.query;
 	var swc = req.swc;
 
-	if(query.self_service_id && query.self_service_id.length == 32){
-		var result = await swc.db.models.self_services.findAndCountAll({
+	if(query.topic_group_id && query.topic_group_id.length == 32){
+		var result = await swc.db.models.topic_groups.findAndCountAll({
 			where : {
-				self_service_id : query.self_service_id
+				topic_group_id : query.topic_group_id
 			}
 		})
 
@@ -24,9 +24,9 @@ module.exports = async (req, res, next)=>{
 		return ;
 	}
 
-	if(!query.service_class_id || query.service_class_id.length != 32){
+	if(!query.subject_id || query.subject_id.length != 32){
 		req.response.status = 4005;
-		req.response.error_message = "参数错误：service_class_id";
+		req.response.error_message = "参数错误：subject_id";
 		next();
 		return ;
 	}
@@ -48,19 +48,35 @@ module.exports = async (req, res, next)=>{
 	query.item_per_page = parseInt(query.item_per_page);
 
 	try{
-		var result = await swc.db.models.self_services.findAndCountAll({
+		var topicGroups = await swc.db.models.topic_groups.findAndCountAll({
 			where : {
-				service_class_id : query.service_class_id
+				subject_id : query.subject_id,
+				status : 1
 			},
 			order : [["create_at", "DESC"]],
 			limit : query.item_per_page,
 			offset : (query.page - 1) * query.item_per_page
 		})
 
-		req.response.data = result;
+		//查分
+		for(var i=0;i<topicGroups.count;i++){
+			var record = await swc.db.models.user_records.findAndCountAll({
+				where : {
+					topic_group_id : topicGroups.rows[i].topic_group_id,
+					create_by : req.source.wechat_user.user_id
+				},
+				order : [["create_at", "DESC"]],
+			})
+			if(record.count > 0){
+				topicGroups.rows[i].dataValues.user_record = record.rows[0];
+			}
+		}
+
+		req.response.data = topicGroups;
 
 		next();
 	}catch(e){
+		console.log(e);
 		req.response.status = 5000;
 		req.response.error_message = e.message;
 		next();

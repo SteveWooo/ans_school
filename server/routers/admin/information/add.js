@@ -6,12 +6,6 @@ module.exports = async (req, res, next)=>{
 	var query = req.body;
 	var swc = req.swc;
 
-	if(!query.service_class_id || query.service_class_id.length != 32){
-		req.response.status = 4005;
-		req.response.error_message = "参数错误";
-		next();
-		return ;
-	}
 	if(!query.title){
 		req.response.status = 4005;
 		req.response.error_message = "参数错误";
@@ -32,17 +26,18 @@ module.exports = async (req, res, next)=>{
 	var now = +new Date();
 	var id_source = [
 		req.source.admin_user.admin_id,
-		"self_services",
+		"informations",
 		now,
 		swc.config.wechat.public_salt
 	].join("&");
-	var selfservice = {
-		self_service_id : crypto.createHash('md5').update(id_source).digest('hex'),
-		service_class_id : query.service_class_id,
+	var information = {
+		information_id : crypto.createHash('md5').update(id_source).digest('hex'),
+
 		title : query.title,
 		content : query.content,
-		description : query.description,
 		cover_url : image.filename,
+		set_top : 2,
+		status : 1,
 
 		create_at : now,
 		update_at : now,
@@ -51,7 +46,7 @@ module.exports = async (req, res, next)=>{
 	}
 
 	try{
-		var result = await swc.db.models.self_services.create(selfservice);
+		var result = await swc.db.models.informations.create(information);
 		req.response.data = result;
 		next();
 	}catch(e){
