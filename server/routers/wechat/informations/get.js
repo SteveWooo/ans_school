@@ -40,11 +40,17 @@ module.exports = async (req, res, next)=>{
 	}
 	query.item_per_page = parseInt(query.item_per_page);
 
+	var conditions = {
+		status : 1
+	}
+
+	if(query.set_top){
+		conditions.set_top = query.set_top;
+	}
+
 	try{
 		var result = await swc.db.models.informations.findAndCountAll({
-			where : {
-				status : 1
-			},
+			where : conditions,
 			include : [{
 				as : "admin",
 				model : swc.db.models.admins

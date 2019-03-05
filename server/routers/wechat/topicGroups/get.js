@@ -59,7 +59,7 @@ module.exports = async (req, res, next)=>{
 		})
 
 		//查分
-		for(var i=0;i<topicGroups.count;i++){
+		for(var i=0;i<topicGroups.rows.length;i++){
 			var record = await swc.db.models.user_records.findAndCountAll({
 				where : {
 					topic_group_id : topicGroups.rows[i].topic_group_id,
