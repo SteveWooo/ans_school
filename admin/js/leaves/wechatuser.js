@@ -16,15 +16,6 @@ keke.leaves.wechatuser = {
 		},{
 			text : "昵称",
 			sortable: false,
-		},{
-			text : "姓名",
-			sortable : false
-		}, {
-			text : "手机号",
-			sortable : false
-		}, {
-			text : "区域/宿舍楼/房间号",
-			sortable : false
 		}]
 	},
 	panels : {

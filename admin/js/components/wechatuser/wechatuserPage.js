@@ -58,16 +58,6 @@ Vue.component("wechatuser", {
 <v-container>
 	<v-layout row wrap>
 		<v-flex xs5>
-			<v-text-field
-				required
-				v-model=data.condition.name
-				label="名字">
-			</v-text-field>
-			<v-text-field
-				required
-				v-model=data.condition.mobile
-				label="手机号">
-			</v-text-field>
 		</v-flex>
 		<v-flex xs7 class="text-xs-right">
 			<v-btn color="white"
@@ -94,15 +84,6 @@ Vue.component("wechatuser", {
 					</td>
 					<td>
 						{{props.item.nick_name}}
-					</td>
-					<td>
-						{{props.item.name}}
-					</td>
-					<td>
-						{{props.item.mobile}}
-					</td>
-					<td>
-						{{props.item.position_field}}/{{props.item.position_building}}/{{props.item.position_room}}
 					</td>
 				</template>
 			</v-data-table>
