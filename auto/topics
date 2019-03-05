@@ -1,0 +1,45 @@
+{
+	"topics" : [{
+		"title" : "10 % 3 = ?",
+		"content" : {
+			"options" : {
+				"A" : {
+					"content" : "3"
+				},
+				"B" : {
+					"content" : "1"
+				}
+			}
+		},
+		"answer" : "B",
+		"explain" : "10除以3余数为1"
+	},{
+		"title" : "-10 % 3 = ?",
+		"content" : {
+			"options" : {
+				"A" : {
+					"content" : "-1"
+				},
+				"B" : {
+					"content" : "1"
+				}
+			}
+		},
+		"answer" : "A",
+		"explain" : "详解"
+	},{
+		"title" : "-10 % 3 = ?",
+		"content" : {
+			"options" : {
+				"A" : {
+					"content" : "-1"
+				},
+				"B" : {
+					"content" : "1"
+				}
+			}
+		},
+		"answer" : "A",
+		"explain" : "详解"
+	}]
+}
