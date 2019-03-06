@@ -12,7 +12,7 @@ function parseTopic(swc, options){
 		error_message : ''
 	}
 	//检查
-	if(options.topics.indexOf('data:application/octet-stream;base64,') < 0){
+	if(options.topics.indexOf(';base64,') < 0){
 		resp.status = 4006;
 		resp.error_message = '解析错误:上传数据非标准base64';
 		return resp;
@@ -20,7 +20,8 @@ function parseTopic(swc, options){
 	//转换json
 	var topicsFile;
 	try{
-		topicsFile = (Buffer.from(options.topics.replace('data:application/octet-stream;base64,', ''), "base64")).toString()
+		var sourceFile = options.topics.substring(options.topics.indexOf(';base64,') + ';base64,'.length);
+		topicsFile = (Buffer.from(sourceFile, "base64")).toString()
 		topicsFile = JSON.parse(topicsFile);
 	}catch(e){
 		resp.status = 4006;
