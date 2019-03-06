@@ -52,6 +52,21 @@ var wechat_routers = {
 		path : "/api/w/information/get",
 		method : "get"
 	},
+	getComment : {
+		module : require("./routers/wechat/comments/get"),
+		path : "/api/w/comment/get",
+		method : "get"
+	},
+	addComment : {
+		module : require("./routers/wechat/comments/add"),
+		path : "/api/w/comment/add",
+		method : "post"
+	},
+	deleteComment : {
+		module : require("./routers/wechat/comments/delete"),
+		path : "/api/w/comment/delete",
+		method : "post"
+	},
 
 	//科目
 	getSubject : {

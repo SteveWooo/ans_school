@@ -19,11 +19,7 @@ module.exports = async (req, res, next)=>{
 		}
 
 		var result = await user.rows[0].update({
-			mobile : query.mobile,
-			name : query.name,
-			position_field : query.position_field,
-			position_building : query.position_building,
-			position_room : query.position_room,
+			exam_time : query.exam_time
 		})
 		req.response.data = result;
 		next();

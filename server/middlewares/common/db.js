@@ -9,9 +9,7 @@ async function models_defined(swc){
 
 		mobile : {type : Sequelize.TEXT()},
 		name : {type : Sequelize.TEXT()},
-		position_field : {type : Sequelize.TEXT()},
-		position_building : {type : Sequelize.TEXT()},
-		position_room : {type : Sequelize.TEXT()},
+		exam_time : {type : Sequelize.TEXT()},
 
 		create_by : {type : Sequelize.STRING(32)},
 		update_by : {type : Sequelize.STRING(32)},
@@ -40,6 +38,19 @@ async function models_defined(swc){
 
 		status : {type : Sequelize.INTEGER()},
 		set_top : {type : Sequelize.INTEGER()}, //是否首页轮播
+
+		create_by : {type : Sequelize.STRING(32)},
+		update_by : {type : Sequelize.STRING(32)},
+		create_at : {type : Sequelize.STRING()},
+		update_at : {type : Sequelize.STRING()},
+	})
+	//评论表
+	swc.db.models.comments = swc.db.seq.define("comments", {
+		information_id : {type : Sequelize.STRING(32)},
+		comment_id : {type : Sequelize.STRING(32)},
+
+		comment : {type : Sequelize.TEXT()},
+		status : {type : Sequelize.INTEGER()},
 
 		create_by : {type : Sequelize.STRING(32)},
 		update_by : {type : Sequelize.STRING(32)},
@@ -123,6 +134,11 @@ async function models_defined(swc){
 		foreignKey : 'topic_group_id',
 		targetKey : 'topic_group_id',
 		as : 'topic_group'
+	})
+	swc.db.models.comments.belongsTo(swc.db.models.users, {
+		foreignKey : 'create_by',
+		targetKey : 'user_id',
+		as : 'wechat_user'
 	})
 
 	// swc.db.models.orders.belongsTo(swc.db.models.service_classes, {
