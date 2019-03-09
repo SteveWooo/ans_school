@@ -10,6 +10,17 @@ async function models_defined(swc){
 		mobile : {type : Sequelize.TEXT()},
 		name : {type : Sequelize.TEXT()},
 		exam_time : {type : Sequelize.TEXT()},
+		study_time : {type : Sequelize.TEXT()},
+
+		create_by : {type : Sequelize.STRING(32)},
+		update_by : {type : Sequelize.STRING(32)},
+		create_at : {type : Sequelize.STRING()},
+		update_at : {type : Sequelize.STRING()},
+	})
+	swc.db.models.feedbacks = swc.db.seq.define("feedbacks", {
+		feedback_id : {type : Sequelize.STRING(32)},
+
+		content : {type : Sequelize.TEXT()},
 
 		create_by : {type : Sequelize.STRING(32)},
 		update_by : {type : Sequelize.STRING(32)},
@@ -140,12 +151,11 @@ async function models_defined(swc){
 		targetKey : 'user_id',
 		as : 'wechat_user'
 	})
-
-	// swc.db.models.orders.belongsTo(swc.db.models.service_classes, {
-	// 	foreignKey : "service_class_id",
-	// 	targetKey : "service_class_id",
-	// 	as : "service_class"
-	// })
+	swc.db.models.feedbacks.belongsTo(swc.db.models.users, {
+		foreignKey : "create_by",
+		targetKey : "user_id",
+		as : "user"
+	})
 
 	return swc;
 }

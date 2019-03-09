@@ -100,6 +100,16 @@ var wechat_routers = {
 		path : "/api/w/record/get",
 		method : "get"
 	},
+	addTime : {
+		module : require("./routers/wechat/user/addtime"),
+		path : "/api/w/user/add_time",
+		method : "get"
+	},
+	addFeedback : {
+		module : require("./routers/wechat/user/feedback"),
+		path : "/api/w/user/feedback",
+		method : "post"
+	}
 }
 
 //后台接口
@@ -194,13 +204,18 @@ var admin_routers = {
 		path : "/api/m/wechat_user/get",
 		method : "get"
 	},
+	getFeedback : {
+		module : require("./routers/admin/feedback/get"),
+		path : "/api/m/feedback/get",
+		method : "get"
+	},
 
 	//管理员信息
 	getAdminInfo : {
 		module : require("./routers/admin/user/get"),
 		path : "/api/m/user/get",
 		method : "get"
-	}
+	},
 }
 
 //用于登陆的接口

@@ -34,7 +34,8 @@ var keke = {
 			'subject',
 			'topicgroup',
 			'topic',
-			'information'
+			'information',
+			'feedback'
 		];
 
 		var sdk_list = {

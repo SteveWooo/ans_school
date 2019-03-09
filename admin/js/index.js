@@ -8,7 +8,8 @@ var vue = new Vue({
 			'topic' : '题目管理',
 			'information' : '资讯管理',
 			'wechatuser' : '用户管理',
-			'record' : '成绩查询'
+			'record' : '成绩查询',
+			'feedback' : '反馈管理'
 		},
 		router : "",
 		global : {
@@ -121,6 +122,10 @@ var vue = new Vue({
 				text : "微信用户管理",
 				icon: 'history',
 				router : "wechatuser"
+			},{
+				text : "用户反馈管理",
+				icon: 'history',
+				router : "feedback"
 			}]
 		}
 	},

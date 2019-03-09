@@ -2,7 +2,7 @@
 * @param 
 */
 module.exports = async (req, res, next)=>{
-	var query = req.body;
+	var query = req.query;
 	var swc = req.swc;
 	try{
 		var user = await swc.db.models.users.findAndCountAll({
@@ -18,9 +18,14 @@ module.exports = async (req, res, next)=>{
 			return ;
 		}
 
+		if(user.rows[0].study_time == null){
+			user.rows[0].study_time = 0;
+		}
+		var study_time = parseInt(user.rows[0].study_time);
+		study_time += 60000;
+
 		var result = await user.rows[0].update({
-			nick_name : query.nick_name,
-			avatar_url : query.avatar_url,
+			study_time : study_time
 		})
 		req.response.data = result;
 		next();
