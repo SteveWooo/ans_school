@@ -21,9 +21,11 @@ function parseTopic(swc, options){
 	var topicsFile;
 	try{
 		var sourceFile = options.topics.substring(options.topics.indexOf(';base64,') + ';base64,'.length);
-		topicsFile = (Buffer.from(sourceFile, "base64")).toString()
+		topicsFile = (Buffer.from(sourceFile, "base64")).toString();
+		console.log(typeof topicsFile)
 		topicsFile = JSON.parse(topicsFile);
 	}catch(e){
+		console.log(e);
 		resp.status = 4006;
 		resp.error_message = '解析错误:' + e.message;
 		return resp;
@@ -71,7 +73,11 @@ function parseTopic(swc, options){
 			break;
 		}
 
-		topicsFile.topics[i].content = JSON.stringify(topicsFile.topics[i].content);
+		try{
+			topicsFile.topics[i].content = JSON.stringify(topicsFile.topics[i].content);
+		}catch(e){
+			console.log(e);
+		}
 	}
 
 	resp.topics = topicsFile.topics;
