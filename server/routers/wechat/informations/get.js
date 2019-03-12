@@ -19,6 +19,11 @@ module.exports = async (req, res, next)=>{
 			return ;
 		}
 
+		//增加点击数
+		await result.rows[0].update({
+			count : result.rows[0].count + 1
+		});
+
 		req.response.data = result;
 		next();
 		return ;

@@ -48,6 +48,7 @@ async function models_defined(swc){
 		cover_url : {type : Sequelize.TEXT()},
 
 		status : {type : Sequelize.INTEGER()},
+		count : {type : Sequelize.INTEGER()},
 		set_top : {type : Sequelize.INTEGER()}, //是否首页轮播
 
 		create_by : {type : Sequelize.STRING(32)},
