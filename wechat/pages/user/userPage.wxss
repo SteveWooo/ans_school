@@ -1,0 +1,70 @@
+.header {
+	width : 100%;
+}
+
+.userinfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position:absolute;
+	width : 100%;
+	top : 30rpx;
+	text-align : center;
+}
+
+.userinfo-avatar {
+  	width: 128rpx;
+	height: 128rpx;
+	margin: 20rpx;
+	border-radius: 50%;
+	border : 1px solid #fff;
+}
+
+.userinfo-nickname {
+	color: #fff;
+}
+.userinfo-shit {
+	color: #fff;
+	margin-top : 20rpx;
+	font-size : 25rpx;
+}
+
+.service-class{
+	display : flex;
+  	flex-direction: row;
+  	justify-content:space-between;
+    flex-wrap: wrap;
+	width : 100%;
+	margin-top : 20rpx;
+}
+
+.service-class .item{
+	width : 90%;
+	margin-left : 5%;
+	height : 100rpx;
+	line-height : 100rpx;
+	padding : 10rpx 10rpx 10rpx 10rpx;
+	border-bottom : 1rpx solid #eee;
+	display:flex;
+	flex-direction:row;
+}
+
+.service-class .item .icon{
+	width:20%;
+	text-align:left;
+}
+
+.service-class .item .name{
+	width:80%;
+  	font-size : 40rpx;
+  	padding-left : 30rpx;
+	text-align:left;
+}
+
+.span-title {
+	width:100%;
+	text-align:center;
+	color : #406580;
+	height:80rpx;
+	line-height:80rpx;
+}

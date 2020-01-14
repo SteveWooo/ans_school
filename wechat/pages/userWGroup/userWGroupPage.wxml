@@ -1,0 +1,32 @@
+<view class="group">
+	<view class="title">
+		考研题库学习交流群
+	</view>
+	<view class="info">
+		<view>
+			群主昵称：{{wechatGroup.nickName}}
+		</view>
+		<view>
+			微信号：{{wechatGroup.wechatNumber}}
+		</view>
+	</view>
+	<view class="operate">
+		<view bindtap="onCopy">
+			点击复制
+		</view>
+	</view>
+</view>
+
+<view class="group">
+	<view class="code">
+		<image src="/icons/code.png" mode="widthFix" />
+	</view>
+	<view class="info">
+		<view >
+			点击二维码长按保存，扫一扫联系管理员
+		</view>
+		<view>
+			带你找小伙伴一起交流进步
+		</view>
+	</view>
+</view>

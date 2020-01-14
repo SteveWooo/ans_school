@@ -1,0 +1,11 @@
+<view style="background-color:rgba(244,244,244,1);height:100%;width:100%;position:fixed">
+	<view style="width:100%;background-color:rgba(244,244,244,1);padding:0 0 0 0;position:releative;height:300rpx;text-align:center;line-height:300rpx">
+
+	</view>
+	<view style="width:100%;margin-top:80rpx;">
+		<button open-type="getUserInfo" bindgetuserinfo="getUserInfo" 
+		style="width:60%;margin-left:20%;border-radius:20rpx;background-color:#406580;color:#fff;height:80rpx;line-height:80rpx">
+			进入测试系统
+		</button>
+	</view>
+</view>

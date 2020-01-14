@@ -1,0 +1,85 @@
+.header-img{
+	width : 100%;
+}
+
+.header-img image {
+	width : 100%;
+}
+
+.tabs {
+  width: 96%;
+  margin-left:2%;
+  border-bottom:1px solid #ccc;
+}
+
+.tabs .swiper-tab{
+    width: 100%;
+    text-align: center;
+    height: 100rpx;
+    line-height: 100rpx;
+    /*display: flex;*/
+    /*flex-flow: row;*/
+    white-space: nowrap;
+    /*justify-content: space-between;*/
+}
+
+.tabs .swiper-tab-item{
+    width: 30%; 
+    font-size : 14px;
+    color:#434343;
+    display: inline-block;
+}
+.tabs .active{
+    color:#406580;
+    border-bottom: 4rpx solid #406580;
+}
+
+.selfservice {
+
+}
+
+.selfservice .item {
+	display : flex;
+	flex-direction:row;
+	border-bottom : 1px solid #eee;
+	padding :10rpx 20rpx 10rpx 20rpx;
+}
+
+.selfservice .item .content {
+	width : 100%;
+    display : flex;
+    flex-direction : row;
+    padding : 20rpx 20rpx 20rpx 20rpx;
+}
+
+.selfservice .item .content .title-content {
+    width : 70%;
+}
+
+.selfservice .item .content .title-content .title {
+	font-weight:bolder;
+	text-align:left;
+	color : #777;
+}
+
+.selfservice .item .content .title-content .description {
+	color : #999;
+    font-size : 30rpx;
+}
+
+.selfservice .item .content .opera-content {
+    width : 30%;
+}
+
+.selfservice .item .content .opera-content .score {
+
+}
+
+.selfservice .item .content .opera-content .button {
+
+}
+
+.selfservice .item .content .opera-content .button button{
+    font-size : 30rpx;
+    margin-top : 20rpx;
+}

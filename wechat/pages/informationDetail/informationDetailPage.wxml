@@ -1,0 +1,52 @@
+<import src="../../wxParser/index.wxml"/>
+<view class="header">
+  <view class="title">
+    {{information.title}}
+  </view>
+
+  <view class="sub-title">
+    <view class="time">
+      创建于：{{information.create_at}} <strong style="font-weight : bolder;color : #666;margin-left : 20rpx">阅读量：{{information.count}}</strong>
+    </view>
+  </view>
+</view>
+<view style="background-color: #eee;margin:8px 0 0 5%;height:1px;width:90%;"></view>
+<view class="content">
+  <wxparser rich-text="{{information.content}}" />
+</view>
+
+<view class="span">
+  —— 评论区 ——
+</view>
+
+<view class="operate" bindtap="toComment">
+  写评论
+</view>
+
+<view class="comments">
+  <view 
+    class="item"
+    wx:for="{{comment.list}}"
+    wx:key="index">
+    <view class="avatar">
+      <image src="{{item.wechat_user.avatar_url}}" mode="widthFix"/>
+    </view>
+
+    <view class="comment">
+      {{item.comment}}
+    </view>
+
+    <view class="operate">
+      <view class="delete" 
+        wx:if="{{item.create_by == userData.user_id}}"
+        bindtap="onDelete"
+        data-comment_id="{{item.comment_id}}">
+        删除
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{loading}}" style="width:100%;position:absolute;bottom:200rpx;text-align:center">
+  <image src="/icons/loading.gif" style="width:100rpx" mode="widthFix" />
+</view>

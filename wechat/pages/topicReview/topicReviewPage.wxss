@@ -1,0 +1,87 @@
+.title {
+	width : 100%;
+	text-align : center;
+	padding : 70rpx 20rpx 50rpx 20rpx;
+	color : #555;
+}
+
+.options {
+	width : 100%;
+	display : flex;
+	flex-direction : column;
+}
+
+.options .item{
+	width : 80%;
+	padding : 20rpx 20rpx 20rpx 20rpx;
+	margin-left : 10%;
+	text-align : center;
+}
+
+.options .item .choose {
+
+}
+
+.options .item .choose .active {
+	border : 1px solid green;
+	height : 90rpx;
+	line-height : 90rpx;
+	border-radius : 30rpx;
+}
+
+.options .item .choose .worn-active {
+	border : 1px solid #406580;
+	height : 90rpx;
+	line-height : 90rpx;
+	border-radius : 30rpx;
+}
+
+.options .item .choose .unactive {
+	height : 90rpx;
+	line-height : 90rpx;
+}
+
+.operation {
+	margin-top : 100rpx;
+	position:relative;
+	display : flex;
+	flex-direction:row;
+	width : 100%;
+}
+
+.operation .next {
+	background-color : #406580;
+	position : absolute;
+	right : 70rpx;
+	width : 250rpx;
+	color : #fff;
+}
+
+.operation .last {
+	background-color : #406580;
+	position : absolute;
+	left : 70rpx;
+	width : 250rpx;
+	color:#fff;
+}
+
+.operation .submit {
+	width : 80%;
+	margin-left : 10%;
+	margin-top : 70rpx;
+}
+
+.explain {
+	width : 94%;
+	margin-left : 3%;
+	margin-top : 80rpx;
+}
+
+.explain .choose {
+	color : #666;
+}
+
+.explain .content {
+	color : #111;
+	margin-top : 10rpx;
+}

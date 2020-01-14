@@ -1,0 +1,47 @@
+<view class="title">
+	<strong>{{topic.item.number+1}}：</strong>{{topic.item.title}}
+</view>
+
+<view class="options">
+	<view class="item"
+		wx:key="{{index}}"
+		wx:for="{{topic.item.content.options}}">
+		<view class="choose"
+			data-option="{{index}}"
+			bindtap="onChoose">
+			<view class="active" wx:if="{{result.answers[topic.current] == index}}">
+				<strong>
+				{{index}}
+				</strong> : <font>
+					{{item.content}} 
+				</font>
+			</view>
+			<view class="unactive" wx:if="{{result.answers[topic.current] != index}}">
+				<strong>
+				{{index}}
+				</strong> : <font>
+					{{item.content}} 
+				</font>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="operation">
+	<button class="last" wx:if="{{topic.current != 0 && !loading}}" bindtap="toLastTopic">
+		上一题
+	</button>
+	<button class="next" wx:if="{{topic.current < topic.count - 1 && !loading}}" bindtap="toNextTopic">
+		下一题
+	</button>
+
+</view>
+<view class="operation">
+	<button class="submit" wx:if="{{topic.current == topic.count - 1 && !loading}}" bindtap="onSubmit">
+		交卷
+	</button>
+</view>
+
+<view wx:if="{{loading}}" style="width:100%;position:absolute;bottom:200rpx;text-align:center">
+  <image src="/icons/loading.gif" style="width:100rpx" mode="widthFix" />
+</view>

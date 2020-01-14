@@ -1,0 +1,44 @@
+<scroll-view 
+  scroll-y="true"
+  style="width:100%;height:100%">
+  <view style="border-bottom:1px solid #eee;width:100%">
+    <swiper class="swiper" style="height:225px" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+      <block wx:for="{{swiper.list}}" wx:key="index">  
+        <swiper-item>  
+          <image 
+            bindtap="toInformation"
+            data-information_id="{{item.information_id}}"
+            style="width:100%" src="{{item.cover_url}}" class="slide-image" mode="widthFix"/>  
+        </swiper-item>  
+      </block>
+    </swiper>
+  </view>
+  <view class="span-title-content">
+    <picker bindchange="changeDate" mode="date">
+       <span>距离考研考试</span> {{time.lessDay}} <span>天</span>
+    </picker>
+  </view>
+  <view class="span">
+    —— 最新资讯 ——
+  </view>
+  <view 
+    class="content-list">
+  	<view
+    	wx:for="{{information.list}}" 
+    	wx:key="{{index}}" 
+    	class="content"
+      data-information_id="{{item.information_id}}"
+      bindtap="toInformation">
+      <view class="cover">
+        <image src="{{item.cover_url}}" mode="widthFix"/>
+      </view>
+      <view class="title">
+      	{{item.title}}
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<view wx:if="{{loading}}" style="width:100%;position:absolute;bottom:200rpx;text-align:center">
+  <image src="/icons/loading.gif" style="width:100rpx" mode="widthFix" />
+</view>

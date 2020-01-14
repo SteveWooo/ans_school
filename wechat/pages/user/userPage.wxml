@@ -1,0 +1,29 @@
+<view class="header">
+	<view class="userinfo">
+		<block>
+			<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    		<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    		<text class="userinfo-shit">只有意志坚强的人，才能到达彼岸</text>
+		</block>
+	</view>
+	<image mode="widthFix" style="width:100%;" src="/icons/user_background.jpg" />
+</view>
+
+<!-- <view style="width : 100%;text-align:center;margin-top:150rpx;font-size : 40rpx;color:#406580">
+	考研一点也不难，难就难在坚持。
+</view> -->
+<view class="service-class">
+	<view
+		wx:for="{{operation.list}}" 
+		wx:key="{{index}}" 
+		class="item"
+		data-router="{{item.router}}"
+		bindtap="toRouter">
+	  <view class="icon">
+	  	<image src="{{item.icon_url}}" mode="widthFix" style="width:40%;margin-left:30%" />
+	  </view>
+	  <view class="name">
+	  	{{item.name}}
+	  </view>
+	</view>
+</view>

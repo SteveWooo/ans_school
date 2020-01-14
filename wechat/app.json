@@ -1,0 +1,51 @@
+{
+  "pages":[
+    
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/main/mainPage",
+    "pages/userStudyTime/userStudyTimePage",
+    "pages/userWGroup/userWGroupPage",
+    "pages/userFeedBack/userFeedBackPage",
+    "pages/user/userPage",
+    "pages/userRecord/userRecordPage",
+    "pages/informationDetail/informationDetailPage",
+    "pages/informationComment/informationCommentPage",
+    "pages/topicGroup/topicGroupPage",
+    "pages/topic/topicPage",
+    "pages/topicReview/topicReviewPage"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#406580",
+    "navigationBarTitleText": "考研",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar" : {
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#fff",
+    "list" : [{
+      "pagePath" : "pages/main/mainPage",
+      "text" : "主页",
+      "iconPath" : "icons/index.png",
+      "selectedIconPath" : "icons/index_s.png"
+    }, {
+      "pagePath": "pages/topicGroup/topicGroupPage",
+      "text" : "测试",
+      "iconPath": "icons/club.png",
+      "selectedIconPath": "icons/club_s.png"
+    }, {
+      "pagePath": "pages/user/userPage",
+      "text" : "我",
+      "iconPath": "icons/user.png",
+      "selectedIconPath": "icons/user_s.png"
+    }]
+  },
+  "plugins": {
+    "wxparserPlugin": {
+      "version": "0.2.1",
+      "provider": "wx9d4d4ffa781ff3ac"
+    }
+  }
+}

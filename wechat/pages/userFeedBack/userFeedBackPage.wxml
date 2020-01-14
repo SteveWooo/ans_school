@@ -1,0 +1,16 @@
+<view class="section-area">
+	<view class="section-title">反馈描述</view>
+	<textarea maxlength="-1"
+	 height="200px" 
+	 value="{{form.content}}"
+	 data-item="content" bindinput="onFormInput">
+	</textarea>
+</view>
+
+<view class="btn-area">
+	<button form-type="submit" class="submit" bindtap='onSubmit'>提交</button>
+</view>
+
+<view wx:if="{{loading}}" style="width:100%;position:absolute;bottom:200rpx;text-align:center">
+  <image src="/icons/loading.gif" style="width:100rpx" mode="widthFix" />
+</view>

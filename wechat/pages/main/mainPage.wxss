@@ -1,0 +1,56 @@
+.span {
+  text-align : center;
+  color : #999;
+  font-size : 25rpx;
+}
+
+
+.span-title {
+	width:100%;
+	text-align:center;
+	font-size : 40rpx;
+	padding : 40rpx 10rpx 10rpx 30rpx;
+	color : #406580;
+	height:80rpx;
+	line-height:80rpx;
+}
+
+.span-title-content {
+	margin-top : 20rpx;
+	width : 100%;
+	text-align:center;
+	font-size : 80rpx;
+	color : #406580;
+}
+.span-title-content span {
+	color : #666;
+	font-size : 40rpx;
+}
+
+.content-list {
+	width : 100%;
+	display : flex;
+	flex-direction:column;
+}
+
+.content-list .content {
+	width : 100%;
+	padding : 20rpx 20rpx 20rpx 20rpx;
+	border-bottom : 1rpx solid #eee;
+	display : flex;
+	flex-direction : row;
+}
+
+.content-list .content .cover {
+	width : 30%;
+}
+
+.content-list .content .cover image {
+	width : 100%;
+}
+
+.content-list .content .title {
+	width : 70%;
+	color : #666;
+	padding : 20rpx 20rpx 20rpx 20rpx;
+}

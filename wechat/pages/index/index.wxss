@@ -1,0 +1,60 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.wave-up {
+	width:200%;
+	margin-left:0%;
+	margin-bottom:-10rpx;
+	opacity:0.8;
+	animation:waveSvgAnim1 10s linear infinite;
+}
+
+.wave-down {
+	position:absolute;
+	width:200%;
+	margin-top:-35rpx;
+	opacity:1;
+	animation:waveSvgAnim2 10s linear infinite;
+}
+
+@keyframes waveSvgAnim1 {
+  0% {
+    transform: translateX(-50%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes waveSvgAnim2 {
+  0% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}

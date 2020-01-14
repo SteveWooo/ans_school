@@ -1,0 +1,60 @@
+page {
+	background-color : #406580;
+	height : 100%;
+}
+
+.group {
+	width : 90%;
+	margin-left:5%;
+	background-color:#fff;
+	margin-top : 40rpx;
+	text-align:center;
+	border-radius : 20rpx;
+	padding-bottom:40rpx;
+}
+
+.group .title {
+	height : 100rpx;
+	line-height : 100rpx;
+	color : #777;
+	font-size : 40rpx;
+	font-weight : bolder;
+}
+
+.group .info view{
+	height : 50rpx;
+	line-height : 50rpx;
+	font-size : 30rpx;
+	color : #444;
+}
+
+.group .operate {
+	width : 40%;
+	margin-left : 30%;
+	color : #406580;
+	margin-top : 20rpx;
+	padding-bottom : 40rpx;
+	text-align : center;
+}
+.group .operate view {
+	border : 1px solid #406580;
+	color : #406580;
+	width : 60%;
+	margin-left : 20%;
+	border-radius :0;
+	background-color:#fff;
+	font-size : 30rpx;
+	height : 50rpx;
+	line-height : 50rpx;
+}
+
+.group .code {
+	padding-top : 40rpx;
+	padding-bottom : 40rpx;
+	width : 50%;
+	margin-left:25%;
+}
+
+.group .code image {
+	width : 100%;
+}

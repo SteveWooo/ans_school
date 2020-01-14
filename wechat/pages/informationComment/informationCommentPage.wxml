@@ -1,0 +1,13 @@
+<view 
+	class="comment">
+	<textarea maxlength="500"
+     value="{{form.comment}}"
+     data-item="comment" bindinput="onFormInput">
+    </textarea>
+</view>
+
+<view class="operation">
+	<button bindtap="onSubmit">
+		提交
+	</button>
+</view>

@@ -1,0 +1,65 @@
+<scroll-view 
+  	scroll-x="true"
+	class="tabs">
+  <view class="swiper-tab">
+    <view
+    	wx:for="{{subject.list}}"
+    	wx:key="{{index}}"
+    	class="swiper-tab-item {{currentTab==index?'active':''}}" 
+    	data-current="{{index}}"
+    	bindtap="switchTab">
+    	{{item.name}}
+   	</view>
+  </view>
+</scroll-view>
+
+<scroll-view
+	scroll-y="true"
+	class="selfservice"
+	bindscrolltolower="getNextPage">
+	<view 
+		wx:for="{{topicGroup.list}}"
+		wx:key="{{index}}"
+		class="item">
+		<view class="content">
+			<view class="title-content">
+				<view class="title">
+				{{item.title}}
+				</view>
+				<view class="description">
+					{{item.description}}
+				</view>
+			</view>
+			<view class="opera-content">
+				<view class="score">
+					分数：{{item.user_record == undefined ? '' : item.user_record.score}}
+				</view>
+				<view class="button">
+					<button
+						data-topic_group="{{item}}"
+						bindtap="toReview"
+						style="border:0;"
+						wx:if="{{item.user_record != undefined}}">
+						查看错题
+					</button>
+					<button
+						data-topic_group_id="{{item.topic_group_id}}"
+						style="border:none;background-color :#406580;color : #fff;"
+						wx:if="{{item.user_record == undefined}}" bindtap="toTopic">
+						进行考试
+					</button>
+					<button 
+						data-topic_group_id="{{item.topic_group_id}}"
+						style="border:none;background-color :#406580;color : #fff;"
+						wx:if="{{item.user_record != undefined}}" bindtap="toTopic">
+						重测
+					</button>
+				</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>
+
+<view wx:if="{{loading}}" style="width:100%;position:absolute;bottom:200rpx;text-align:center">
+  <image src="/icons/loading.gif" style="width:100rpx" mode="widthFix" />
+</view>

@@ -1,0 +1,31 @@
+.section-area {
+	width : 100%;
+	/*padding : 20rpx 20rpx 20rpx 20rpx;*/
+}
+.section-area .section-title {
+	color : #999;
+	padding : 20rpx 20rpx 20rpx 20rpx;
+}
+
+.section-area textarea {
+	width : 90%;
+	margin-left : 5%;
+	color : #111;
+	border : 1px solid #eee;
+	border-radius : 20rpx;
+}
+
+.btn-area {
+	margin-top : 20rpx;
+	width : 100%;
+}
+
+.btn-area button {
+	width:40%;
+	margin-left:30%;
+	border-radius:20rpx;
+	background-color:#406580;
+	color:#fff;
+	height:80rpx;
+	line-height:80rpx
+}
